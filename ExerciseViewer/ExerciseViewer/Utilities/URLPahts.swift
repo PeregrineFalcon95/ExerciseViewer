@@ -11,6 +11,6 @@ import Foundation
 let baseURL = "https://wger.de/api/v2/"
 
 
-enum OauthPath: String {
+enum Path: String {
     case exerciseList = "exercise"
 }

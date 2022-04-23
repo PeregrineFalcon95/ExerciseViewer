@@ -9,4 +9,8 @@ import Foundation
 
 class EVExerciseListVM {
     
+    var exerciseList : [EVexerciseList] = []
+    func getExerciseList(completion: @escaping( ExerciseListObj? , Error? )-> (Void) ){
+        
+    }
 }

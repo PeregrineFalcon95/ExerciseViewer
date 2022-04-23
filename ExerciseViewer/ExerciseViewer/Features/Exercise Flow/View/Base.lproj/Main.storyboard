@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,18 +17,93 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aC5-0H-ezr" customClass="CustomNavBar" customModule="ExerciseViewer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="xFc-D5-ffx"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NRg-i3-iHc">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ctW-6H-C0A">
+                                    <size key="itemSize" width="192" height="188"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ExerciseCell" id="dab-R1-gE7" customClass="ExerciseCell" customModule="ExerciseViewer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="192" height="188"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ejW-od-rvG">
+                                            <rect key="frame" x="0.0" y="0.0" width="192" height="188"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ICPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="6xw-6g-mm9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="192" height="131.5"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPV-bp-u73">
+                                                    <rect key="frame" x="0.0" y="139.5" width="192" height="48.5"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="6xw-6g-mm9" secondAttribute="trailing" id="ExJ-nd-1P2"/>
+                                                <constraint firstItem="LPV-bp-u73" firstAttribute="top" secondItem="6xw-6g-mm9" secondAttribute="bottom" constant="8" id="G5r-Y6-p0G"/>
+                                                <constraint firstItem="LPV-bp-u73" firstAttribute="leading" secondItem="ejW-od-rvG" secondAttribute="leading" id="N8N-lF-wIZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="LPV-bp-u73" secondAttribute="bottom" id="P1U-D4-UK3"/>
+                                                <constraint firstItem="6xw-6g-mm9" firstAttribute="height" secondItem="ejW-od-rvG" secondAttribute="height" multiplier="0.7" id="U2f-tw-LnN"/>
+                                                <constraint firstAttribute="trailing" secondItem="LPV-bp-u73" secondAttribute="trailing" id="XmP-Wh-2u7"/>
+                                                <constraint firstItem="6xw-6g-mm9" firstAttribute="top" secondItem="ejW-od-rvG" secondAttribute="top" id="ZX8-zy-VSf"/>
+                                                <constraint firstItem="6xw-6g-mm9" firstAttribute="leading" secondItem="ejW-od-rvG" secondAttribute="leading" id="gqr-6a-dEU"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" name="CLCellBackground"/>
+                                        <size key="customSize" width="192" height="188"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="6xw-6g-mm9" id="8er-Wa-SER"/>
+                                            <outlet property="nameLabel" destination="LPV-bp-u73" id="bxQ-BN-dHi"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="CLAppBackground"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NRg-i3-iHc" secondAttribute="bottom" id="0aP-wO-49l"/>
+                            <constraint firstItem="aC5-0H-ezr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1av-cz-Ng7"/>
+                            <constraint firstItem="NRg-i3-iHc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1l2-cK-tv9"/>
+                            <constraint firstItem="NRg-i3-iHc" firstAttribute="top" secondItem="aC5-0H-ezr" secondAttribute="bottom" id="DCb-T0-xmE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NRg-i3-iHc" secondAttribute="trailing" id="Dar-yc-4Y0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aC5-0H-ezr" secondAttribute="trailing" id="f6j-NF-lYO"/>
+                            <constraint firstItem="aC5-0H-ezr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ztH-Hi-fp7"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="NRg-i3-iHc" id="aaX-KN-1OR"/>
+                        <outlet property="navBar" destination="aC5-0H-ezr" id="Xyt-NJ-ywD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117" y="55"/>
+            <point key="canvasLocation" x="115.94202898550725" y="54.910714285714285"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ICPlaceholder" width="512" height="512"/>
         <namedColor name="CLAppBackground">
             <color red="1" green="0.76624381214627668" blue="0.94652634219766663" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="CLCellBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -8,19 +8,64 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    //MARK: IBOutlets
+    @IBOutlet weak private var navBar: CustomNavBar!
+    @IBOutlet weak private var collectionView: UICollectionView!
+    
+    //MARK: Variables
+    private let viewModel = EVExerciseListVM()
+    
+    //MARK: Views life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setStyle()
+        collectionViewSetUp()
+    }
+    
+    //MARK: IBActions
     
 }
 
 //MARK: UI Functionalities
 extension ViewController {
-    
+    private func setStyle(){
+        navBar.hideBackButton()
+    }
 }
 
 //MARK: Navigation Functionalities
 extension ViewController {
     
+}
+
+
+//MARK: CollectionView Functionalities
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    private func collectionViewSetUp(){
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.exerciseList.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.exerciseListID, for: indexPath) as! ExerciseCell
+        cell.configure(viewModel: viewModel, index: indexPath.row)
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width - 16
+        let height = collectionView.bounds.height / 2
+        return CGSize(width: width , height: height)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }
