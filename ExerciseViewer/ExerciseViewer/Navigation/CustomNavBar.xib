@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomNavBar" customModule="ExerciseViewer" customModuleProvider="target">
+            <connections>
+                <outlet property="backBtn" destination="9HW-yb-fNg" id="kI5-hl-tSw"/>
+                <outlet property="containerView" destination="GeO-dq-eAz" id="gta-na-02U"/>
+                <outlet property="titleLbl" destination="eUJ-cm-MH3" id="ain-ZN-XA0"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="GeO-dq-eAz">
+            <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eUJ-cm-MH3">
+                    <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="heightClass=regular-widthClass=regular">
+                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                    </variation>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9HW-yb-fNg">
+                    <rect key="frame" x="8" y="0.0" width="40" height="40"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="9HW-yb-fNg" secondAttribute="height" multiplier="1:1" id="V2n-gg-xSC"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="ICBack"/>
+                    <connections>
+                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="LLU-is-sWI"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="6J5-hz-wZ9"/>
+            <color key="backgroundColor" name="Cl_AppBackground"/>
+            <constraints>
+                <constraint firstItem="9HW-yb-fNg" firstAttribute="top" secondItem="GeO-dq-eAz" secondAttribute="top" id="0SK-fH-WdL"/>
+                <constraint firstItem="eUJ-cm-MH3" firstAttribute="top" secondItem="GeO-dq-eAz" secondAttribute="top" id="Iqf-1t-9pi"/>
+                <constraint firstAttribute="bottom" secondItem="9HW-yb-fNg" secondAttribute="bottom" id="JPY-gB-Xw1"/>
+                <constraint firstItem="6J5-hz-wZ9" firstAttribute="trailing" secondItem="eUJ-cm-MH3" secondAttribute="trailing" id="Krp-ZG-KDE"/>
+                <constraint firstItem="eUJ-cm-MH3" firstAttribute="leading" secondItem="GeO-dq-eAz" secondAttribute="leading" id="gQO-iW-kCa"/>
+                <constraint firstAttribute="bottom" secondItem="eUJ-cm-MH3" secondAttribute="bottom" id="h3V-4u-zyr"/>
+                <constraint firstItem="9HW-yb-fNg" firstAttribute="leading" secondItem="6J5-hz-wZ9" secondAttribute="leading" constant="8" id="iUj-LU-vFe">
+                    <variation key="heightClass=regular-widthClass=regular" constant="16"/>
+                </constraint>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-711.59420289855075" y="-62.276785714285708"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ICBack" width="50" height="50"/>
+        <namedColor name="Cl_AppBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
