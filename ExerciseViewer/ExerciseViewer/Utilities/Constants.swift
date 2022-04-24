@@ -14,5 +14,5 @@ struct Constants {
 
 
 struct Cell {
-    static let exerciseListID = "EVexerciseList"
+    static let exerciseListID = "ExerciseCell"
 }

@@ -16,13 +16,11 @@ class ViewController: UIViewController {
     private let viewModel = EVExerciseListVM()
     
     //MARK: Views life cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setStyle()
         collectionViewSetUp()
+        getData()
     }
     
     //MARK: IBActions
@@ -40,6 +38,17 @@ extension ViewController {
 extension ViewController {
     
 }
+extension ViewController {
+    private func getData(){
+        viewModel.getExerciseList { success in
+            if success {
+                self.collectionView.reloadData()
+            }
+        }
+    }
+}
+
+
 
 
 //MARK: CollectionView Functionalities
@@ -56,7 +65,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.exerciseListID, for: indexPath) as! ExerciseCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Cell.exerciseListID, for: indexPath) as? ExerciseCell else {
+            fatalError("The dequeued cell is not an instance of ExerciseCell.")
+        }
         cell.configure(viewModel: viewModel, index: indexPath.row)
         return cell
     }

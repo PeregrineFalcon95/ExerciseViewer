@@ -23,10 +23,10 @@
 		3B793182281401D00013C072 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B793181281401D00013C072 /* Helper.swift */; };
 		3B793184281403630013C072 /* EVExerciseListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B793183281403630013C072 /* EVExerciseListVM.swift */; };
 		3B793186281415430013C072 /* URLPahts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B793185281415430013C072 /* URLPahts.swift */; };
-		3B79318828141DE00013C072 /* ExerciseListObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B79318728141DE00013C072 /* ExerciseListObj.swift */; };
 		3B79318A281421A80013C072 /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B793189281421A80013C072 /* ExerciseCell.swift */; };
 		3B79318D281425F00013C072 /* EVexerciseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B79318C281425F00013C072 /* EVexerciseList.swift */; };
 		3B79318F281426B70013C072 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B79318E281426B70013C072 /* Constants.swift */; };
+		3BB11A392814FA2700BA4625 /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB11A382814FA2700BA4625 /* Networker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,10 +67,10 @@
 		3B793181281401D00013C072 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		3B793183281403630013C072 /* EVExerciseListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVExerciseListVM.swift; sourceTree = "<group>"; };
 		3B793185281415430013C072 /* URLPahts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPahts.swift; sourceTree = "<group>"; };
-		3B79318728141DE00013C072 /* ExerciseListObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListObj.swift; sourceTree = "<group>"; };
 		3B793189281421A80013C072 /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		3B79318C281425F00013C072 /* EVexerciseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EVexerciseList.swift; sourceTree = "<group>"; };
 		3B79318E281426B70013C072 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3BB11A382814FA2700BA4625 /* Networker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,7 +199,6 @@
 		3B79317A2813FD350013C072 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3B79318728141DE00013C072 /* ExerciseListObj.swift */,
 				3B79318C281425F00013C072 /* EVexerciseList.swift */,
 			);
 			path = Model;
@@ -236,6 +235,7 @@
 				3B793181281401D00013C072 /* Helper.swift */,
 				3B793185281415430013C072 /* URLPahts.swift */,
 				3B79318E281426B70013C072 /* Constants.swift */,
+				3BB11A382814FA2700BA4625 /* Networker.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -375,7 +375,6 @@
 			files = (
 				3B7931442813BDF10013C072 /* ViewController.swift in Sources */,
 				3B7931782813FC7B0013C072 /* Window.swift in Sources */,
-				3B79318828141DE00013C072 /* ExerciseListObj.swift in Sources */,
 				3B79318A281421A80013C072 /* ExerciseCell.swift in Sources */,
 				3B7931402813BDF10013C072 /* AppDelegate.swift in Sources */,
 				3B7931752813FC0C0013C072 /* CustomNavBar.swift in Sources */,
@@ -385,6 +384,7 @@
 				3B793184281403630013C072 /* EVExerciseListVM.swift in Sources */,
 				3B793182281401D00013C072 /* Helper.swift in Sources */,
 				3B79318F281426B70013C072 /* Constants.swift in Sources */,
+				3BB11A392814FA2700BA4625 /* Networker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

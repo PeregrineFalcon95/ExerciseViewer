@@ -8,7 +8,12 @@
 import Foundation
 import UIKit
 
-struct EVexerciseList{
-    var name: String?
-    var image: UIImage?
+struct EVexerciseList: Decodable{
+    let results : [Results]
 }
+
+struct Results : Decodable{
+    let name : String?
+    let exercise_base : Int?
+}
+
