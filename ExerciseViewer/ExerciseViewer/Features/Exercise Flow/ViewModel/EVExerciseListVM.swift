@@ -13,9 +13,7 @@ class EVExerciseListVM {
     
     var exerciseList : [Results] = []
     var exerciseListImage : [ Int : UIImage? ] = [:]
-    
-    let operationQueue = OperationQueue()
-    
+    private let operationQueue = OperationQueue()
     
     //API call to get the list of exercise
     func getExerciseList(completion: @escaping( _ success: Bool )-> (Void) ){
@@ -32,7 +30,7 @@ class EVExerciseListVM {
                     }
                 } catch {
                     DispatchQueue.main.async {
-                        Helper.showAlert(msg: "Serialization Error")
+                        Helper.showAlert(msg: Constants.serializationWarning)
                         completion(false)
                     }
                 }
@@ -46,6 +44,7 @@ class EVExerciseListVM {
         let endPoint = String( base )
         
         let blockOperation = BlockOperation()
+        
         blockOperation.addExecutionBlock {
             Networker.shared.makeRequest(path: Path.exerciseImageInfo.rawValue + endPoint) { data, success in
                 if let data = data, success {
@@ -58,8 +57,8 @@ class EVExerciseListVM {
                                     break
                                 }
                             }
-                        consolePrint(imageUrl)
                             guard let imageUrl = imageUrl else {
+                                self.exerciseListImage [ index ] = nil
                                 return
                             }
                             Networker.shared.getImage(url: URL(string: imageUrl)) { image, success in
@@ -72,7 +71,7 @@ class EVExerciseListVM {
                             }
                     } catch {
                         DispatchQueue.main.async {
-                            Helper.showAlert(msg: "Serialization Error")
+                            Helper.showAlert(msg: Constants.serializationWarning)
                             completion(false)
                         }
                     }
@@ -82,7 +81,4 @@ class EVExerciseListVM {
         operationQueue.qualityOfService = .utility
         operationQueue.addOperation(blockOperation)
     }
-    
-    
-    
 }

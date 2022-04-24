@@ -13,14 +13,15 @@ class ExerciseCell: UICollectionViewCell {
     
     
     func configure(viewModel: EVExerciseListVM, index: Int){
-        imageView.image = UIImage(named: "ICPlaceholder")
+        imageView.image = UIImage(named: ImageNames.placeholderIC)
+        
         if let name = viewModel.exerciseList [ index ].name {
             self.nameLabel.text = name
         }
         if let image = viewModel.exerciseListImage [ index ] {
             imageView.image = image
         }
-        else {
+        else if !viewModel.exerciseListImage.keys.contains(index) {
             viewModel.getExerciseListImage(index: index) { success in
                 if success , let image = viewModel.exerciseListImage [ index ] {
                     self.imageView.image = image

@@ -22,9 +22,6 @@ class ViewController: UIViewController {
         collectionViewSetUp()
         getData()
     }
-    
-    //MARK: IBActions
-    
 }
 
 //MARK: UI Functionalities
@@ -38,6 +35,8 @@ extension ViewController {
 extension ViewController {
     
 }
+
+//MARK: Helper
 extension ViewController {
     private func getData(){
         viewModel.getExerciseList { success in
@@ -48,12 +47,8 @@ extension ViewController {
     }
 }
 
-
-
-
 //MARK: CollectionView Functionalities
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
     private func collectionViewSetUp(){
         collectionView.delegate = self
         collectionView.dataSource = self

@@ -20,7 +20,7 @@ class Networker {
     
     func makeRequest( path: String , completion: @escaping ( Data? , Bool ) -> (Void) ) {
         guard let url = URL(string: baseURL + path) else {
-            Helper.showAlert(msg: "Invalid URL")
+            Helper.showAlert(msg: Constants.invalidURLWarning )
             DispatchQueue.main.async {
                 completion(nil, false)
             }
@@ -40,21 +40,21 @@ class Networker {
             }
             guard let httpResponse = response as? HTTPURLResponse else {
                 DispatchQueue.main.async {
-                    Helper.showAlert(msg: "Bad Response")
+                    Helper.showAlert(msg:Constants.badResponseWarning )
                     completion(nil, false)
                 }
                 return
             }
             guard (200...299).contains(httpResponse.statusCode) else {
                 DispatchQueue.main.async {
-                    Helper.showAlert(msg: "Bad Status Code " + String(httpResponse.statusCode))
+                    Helper.showAlert(msg: Constants.badStatusWarnig + String(httpResponse.statusCode))
                     completion(nil, false)
                 }
                 return
             }
             guard let data = data else {
                 DispatchQueue.main.async {
-                    Helper.showAlert(msg: "Bad Data")
+                    Helper.showAlert(msg: Constants.badDataWarning)
                     completion(nil, false)
                 }
                 return
@@ -69,7 +69,7 @@ class Networker {
     
     func getImage( url: URL? , completion: @escaping ( UIImage? , Bool ) -> (Void) ){
         guard let url = url else {
-            Helper.showAlert(msg: "Invalid URL")
+            Helper.showAlert(msg: Constants.invalidURLWarning)
             DispatchQueue.main.async {
                 completion(nil, false)
             }
@@ -89,7 +89,7 @@ class Networker {
             }
             guard let image = image else {
                 DispatchQueue.main.async {
-                    Helper.showAlert(msg: "Unable to retrive image.")
+                    Helper.showAlert(msg: Constants.retriveImageWarning )
                     completion(nil, false)
                 }
                 return
