@@ -15,5 +15,6 @@ struct EVexerciseList: Decodable{
 struct Results : Decodable{
     let name : String?
     let exercise_base : Int?
+    let image : String?
 }
 

@@ -13,4 +13,5 @@ let baseURL = "https://wger.de/api/v2/"
 
 enum Path: String {
     case exerciseList = "exercise"
+    case exerciseImageInfo = "exerciseimage/?exercise_base="
 }

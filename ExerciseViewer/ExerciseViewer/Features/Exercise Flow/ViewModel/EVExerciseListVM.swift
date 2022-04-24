@@ -6,14 +6,21 @@
 //
 
 import Foundation
+import UIKit
 
 
 class EVExerciseListVM {
     
     var exerciseList : [Results] = []
+    var exerciseListImage : [ Int : UIImage? ] = [:]
+    
+    let operationQueue = OperationQueue()
+    
+    
+    //API call to get the list of exercise
     func getExerciseList(completion: @escaping( _ success: Bool )-> (Void) ){
         
-        Networker.shared.makeRequest(path: Path.exerciseList) { data, success in
+        Networker.shared.makeRequest(path: Path.exerciseList.rawValue) { data, success in
             if let data = data, success {
                 do {
                     let dataModel = try JSONDecoder().decode( EVexerciseList.self , from: data)
@@ -32,4 +39,50 @@ class EVExerciseListVM {
             }
         }
     }
+    
+    //API call to get the image of particular exercise
+    func getExerciseListImage( index: Int ,completion: @escaping( _ success: Bool )-> (Void)){
+        guard exerciseList.count > index , let base = exerciseList [ index ].exercise_base else {return}
+        let endPoint = String( base )
+        
+        let blockOperation = BlockOperation()
+        blockOperation.addExecutionBlock {
+            Networker.shared.makeRequest(path: Path.exerciseImageInfo.rawValue + endPoint) { data, success in
+                if let data = data, success {
+                    do {
+                        let dataModel = try JSONDecoder().decode( EVexerciseList.self , from: data)
+                            var imageUrl : String?
+                            for temp in dataModel.results {
+                                if let image = temp.image {
+                                    imageUrl = image
+                                    break
+                                }
+                            }
+                        consolePrint(imageUrl)
+                            guard let imageUrl = imageUrl else {
+                                return
+                            }
+                            Networker.shared.getImage(url: URL(string: imageUrl)) { image, success in
+                                if success {
+                                    DispatchQueue.main.async {
+                                        self.exerciseListImage [ index ] = image
+                                        completion(true)
+                                    }
+                                }
+                            }
+                    } catch {
+                        DispatchQueue.main.async {
+                            Helper.showAlert(msg: "Serialization Error")
+                            completion(false)
+                        }
+                    }
+                }
+            }
+        }
+        operationQueue.qualityOfService = .utility
+        operationQueue.addOperation(blockOperation)
+    }
+    
+    
+    
 }
