@@ -35,7 +35,6 @@ class CustomNavBar: UIView {
         addSubview(contentView!)
         
         titleLbl.text = ""
-        containerView.backgroundColor = .white
     }
     
     private func loadViewFromNib() -> UIView! {

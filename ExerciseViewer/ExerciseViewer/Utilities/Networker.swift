@@ -96,7 +96,12 @@ class Networker {
             }
             if let image = UIImage(data: image ){
                 DispatchQueue.main.async {
-                    completion(image, true)
+                    if image.hasAlpha {
+                        completion(image.withRenderingMode(.alwaysTemplate), true)
+                    }
+                    else {
+                        completion(image.withRenderingMode(.alwaysOriginal), true)
+                    }
                 }
             }
             else {

@@ -15,11 +15,18 @@ struct Constants {
     static let badStatusWarnig = "Bad Status Code "
     static let badDataWarning = "Bad Data"
     static let retriveImageWarning = "Unable to retrive image."
+    
+    static let appTitle = "Exercise Viewer"
 }
 
 struct ImageNames {
     static let placeholderIC = "ICPlaceholder"
 }
+
+struct Colors {
+    static let cellBorder = "CLCellBorder"
+}
+
 
 struct Cell {
     static let exerciseListID = "ExerciseCell"

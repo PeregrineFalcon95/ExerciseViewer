@@ -28,6 +28,7 @@ class ViewController: UIViewController {
 extension ViewController {
     private func setStyle(){
         navBar.hideBackButton()
+        navBar.setTitle(title: Constants.appTitle)
     }
 }
 
@@ -48,11 +49,17 @@ extension ViewController {
 }
 
 //MARK: CollectionView Functionalities
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     private func collectionViewSetUp(){
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        
+        var space : CGFloat = 8
+        if UIDevice.current.userInterfaceIdiom != .phone {
+            space = 16
+        }
+        
+        collectionView.contentInset = UIEdgeInsets(top: space, left: space, bottom: space, right: space)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -67,8 +74,16 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = 100
-        let height = 100
+        var width  : CGFloat = 0
+        var height : CGFloat = 0
+        
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            width = ( UIScreen.main.bounds.width - 24 ) / 2
+        }
+        else {
+            width = ( UIScreen.main.bounds.width - 80 ) / 4
+        }
+        height = width * 1.5
         return CGSize(width: width , height: height)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

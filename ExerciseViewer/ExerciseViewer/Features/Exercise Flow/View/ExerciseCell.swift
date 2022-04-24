@@ -11,6 +11,14 @@ class ExerciseCell: UICollectionViewCell {
     @IBOutlet weak private var imageView: UIImageView!
     @IBOutlet weak private var nameLabel: UILabel!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if let color = UIColor(named: Colors.cellBorder) {
+            self.layer.borderColor = color.cgColor
+            self.layer.borderWidth = 1
+        }
+        self.layer.cornerRadius = 5
+    }
     
     func configure(viewModel: EVExerciseListVM, index: Int){
         imageView.image = UIImage(named: ImageNames.placeholderIC)

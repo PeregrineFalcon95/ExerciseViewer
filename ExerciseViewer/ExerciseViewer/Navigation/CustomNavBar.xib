@@ -25,7 +25,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                     <variation key="heightClass=regular-widthClass=regular">
                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -37,7 +36,7 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="9HW-yb-fNg" secondAttribute="height" multiplier="1:1" id="V2n-gg-xSC"/>
                     </constraints>
-                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" name="imageTint"/>
                     <state key="normal" image="ICBack"/>
                     <connections>
                         <action selector="backAction:" destination="-1" eventType="touchUpInside" id="LLU-is-sWI"/>
@@ -45,7 +44,7 @@
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="6J5-hz-wZ9"/>
-            <color key="backgroundColor" name="Cl_AppBackground"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="9HW-yb-fNg" firstAttribute="top" secondItem="GeO-dq-eAz" secondAttribute="top" id="0SK-fH-WdL"/>
                 <constraint firstItem="eUJ-cm-MH3" firstAttribute="top" secondItem="GeO-dq-eAz" secondAttribute="top" id="Iqf-1t-9pi"/>
@@ -63,7 +62,7 @@
     </objects>
     <resources>
         <image name="ICBack" width="50" height="50"/>
-        <namedColor name="Cl_AppBackground">
+        <namedColor name="imageTint">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
